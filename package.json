@@ -1,0 +1,22 @@
+{
+  "name": "baeapp",
+  "version": "1.0.0",
+  "description": "Tech: * Node/NPM * Angular * Harp * Gulp * Jasmine * Protractor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronmyatt/baeapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronmyatt/baeapp/issues"
+  },
+  "homepage": "https://github.com/aaronmyatt/baeapp#readme",
+  "devDependencies": {
+    "json-server": "^0.8.22"
+  }
+}
