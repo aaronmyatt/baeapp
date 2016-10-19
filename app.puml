@@ -1,0 +1,55 @@
+package db <<database>> {
+    object jsonserver {
+      "address": "The Boulevard\nMid Valley City, Lingkaran Syed Putra",
+      "city": "Kuala Lumpur",
+      "country": "Malaysia",
+      "postalCode": "59200",
+      "lng": 101.667495,
+      "lat": 3.100753
+    }
+}
+
+package views {
+    object home {
+
+    }
+
+    object list_locations {
+
+    }
+
+    object map {
+
+    }
+}
+
+package controllers {
+    object HomeController {
+
+    }
+
+    object ListController {
+
+    }
+
+    object MapController {
+
+    }
+}
+
+package services {
+    object locations {
+        get()
+        getAll()
+    }
+}
+
+jsonserver <-- locations
+
+locations <-- HomeController
+locations <-- ListController
+locations <-- MapController
+
+HomeController <-- home
+ListController <-- list_locations
+MapController <-- map
