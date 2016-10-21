@@ -1,5 +1,6 @@
-angular.module('location.service', [])
-        .service("locationApi", locationApi)
+angular
+    .module('location.service', [])
+    .service("locationApi", locationApi)
 
     locationApi.$inject = ["$http"]
     function locationApi ($http) {
@@ -19,7 +20,7 @@ angular.module('location.service', [])
         }
 
         function getAll () {
-            const url = `localhost:3000/locations`
+            const url = 'localhost:3000/locations'
             const promise = $http.get(url)
             return promise.then(
                 (response) => { return response.json }
