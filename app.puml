@@ -38,17 +38,26 @@ package controllers {
 }
 
 package services {
-    object locations {
+    object locationsApi {
         get()
         getAll()
     }
+
+    object groupLocations {
+        groupByCountry()
+        groupByCity()
+        groupByCityAndCountry()
+    }
 }
 
-jsonserver <-- locations
+jsonserver <-- locationsApi
 
-locations <-- HomeController
-locations <-- ListController
-locations <-- MapController
+locationsApi <-right- groupLocations
+
+
+locationsApi <-- ListController
+locationsApi <-- MapController
+groupLocations <-- MapController
 
 HomeController <-- home
 ListController <-- list_locations
