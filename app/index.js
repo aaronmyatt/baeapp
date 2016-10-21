@@ -1,8 +1,11 @@
 // index.js
 
-(function(){
+(() => {
 
     angular
-        .module('baeApp', [])
-
-})();
+        .module("baeApp", [
+            "map.module",
+            "list.module",
+            "home.module"
+        ])
+})()

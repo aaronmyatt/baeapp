@@ -14,9 +14,13 @@ angular
         function get (arg) {
             const url = `localhost:3000/locations/${arg}`
             const promise = $http.get(url)
-            return promise.then(
-                (response) => { return response.json }
-            )
+            return promise
+                .then(
+                    (response) => { return response.json }
+                )
+                .catch(
+                    (err) => { console.log(err) }
+                )
         }
 
         function getAll () {

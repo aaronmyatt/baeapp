@@ -1,13 +1,13 @@
 (() => {
 
     angular
-        .module("list.module", ["location.service"])
-        .controller("listController", listController)
+        .module("map.module", ["location.service"])
+        .controller("mapController", mapController)
 
-    listController.$inject = ["locationApi"]
-    function listController (locationApi) {
+    mapController.$inject = ["locationApi"]
+    function mapController (locationApi) {
         const vm = this
-        vm.title = "List"
+        vm.title = "Map"
         vm.locations = locationApi
 
         vm.getAllLocations = getAllLocations
