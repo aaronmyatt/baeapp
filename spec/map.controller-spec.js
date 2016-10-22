@@ -7,10 +7,10 @@ describe("location list controller",  () => {
       module(($provide) => {})
 
       inject(($controller, $injector) => {
-        controller = $controller('mapController')
+          service = $injector.get('locationApi')
+          spyOn(service, "getAll").and.returnValue( Promise.resolve(locationArray) );
+          controller = $controller('mapController')
       })
-
-      spyOn(controller.locations, "getAll").and.returnValue(locationArray);
     })
 
     it ("instantiates successfully", () => {
@@ -26,8 +26,14 @@ describe("location list controller",  () => {
         expect(controller.locations.getAll).toHaveBeenCalled()
     });
 
-    it("getAllLocations returns a list of locations", function () {
-        const result = controller.getAllLocations()
-        expect(result).toBe(locationArray)
-    });
+    it("getAllLocations resolves to a list of locations", (done) => {
+        controller.getAllLocations()
+        done()
+        expect(controller.retrievedLocations).toBe(locationArray)
+    })
+
+    it("getAllLocations called on init", (done) => {
+        done()
+        expect(controller.retrievedLocations).toBe(locationArray)
+    })
 });

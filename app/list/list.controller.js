@@ -18,11 +18,15 @@
         vm.getAllLocations = getAllLocations
 
         function getAllLocations() {
-            return vm.locations.getAll()
+            const promise = vm.locations.getAll()
+            promise.then((response) => {
+                vm.retrievedLocations = response
+                return response
+            })
         }
 
         function init() {
-            vm.retrievedLocations = getAllLocations()
+            getAllLocations()
         }
         init()
     }

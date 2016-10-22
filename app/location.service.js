@@ -17,20 +17,19 @@ angular
             return promise
                 .then(
                     (response) => {
-                        console.log(response)
-                        return response
+                        return response.data
                     }
-                )
-                .catch(
-                    (err) => { console.log(err) }
                 )
         }
 
         function getAll () {
             const url = 'http://localhost:3000/locations'
             const promise = $http.get(url)
-            return promise.then(
-                (response) => { return response.json }
-            )
+            return promise
+                .then(
+                    (response) => {
+                        return response.data
+                    }
+                )
         }
     }

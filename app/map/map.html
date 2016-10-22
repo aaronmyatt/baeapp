@@ -1,1 +1,9 @@
 <h1>{{vm.title}}</h1>
+
+<ng-map zoom="15"
+        center="[3.1390, 101.6869]"
+        zoom-to-include-markers="auto">
+    <marker ng-repeat="location in vm.retrievedLocations"
+            position="[{{location.lat}}, {{location.lng}}]"
+            title="hello"></marker>
+</ng-map>

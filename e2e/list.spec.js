@@ -10,4 +10,8 @@ describe("list page", () => {
         expect( ListPage.title() ).toBe("List")
     })
 
+    it("locations should appear on page load", () => {
+        expect( element.all( by.repeater('location in vm.retrievedLocations' )).count() ).toBe(9)
+    })
+
 })

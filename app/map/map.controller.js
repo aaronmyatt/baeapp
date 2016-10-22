@@ -4,6 +4,7 @@
     angular
         .module("map.module", [
             "ngRoute",
+            "ngMap",
             "location.service"
         ])
         .controller("mapController", mapController)
@@ -13,12 +14,22 @@
         const vm = this
         vm.title = "Map"
         vm.locations = locationApi
+        vm.retrievedLocations = []
 
         vm.getAllLocations = getAllLocations
 
         function getAllLocations() {
-            return vm.locations.getAll()
+            const promise = vm.locations.getAll()
+            promise.then((response) => {
+                vm.retrievedLocations = response
+                return response
+            })
         }
+
+        function init() {
+            getAllLocations()
+        }
+        init()
     }
 
 })()
