@@ -1,7 +1,10 @@
 (() => {
-
+    'use strict';
+    
     angular
-        .module("home.module", [])
+        .module("home.module", [
+            "ngRoute"
+        ])
         .controller("homeController", homeController)
 
     homeController.$inject = [];

@@ -1,7 +1,11 @@
 (() => {
+    'use strict';
 
     angular
-        .module("map.module", ["location.service"])
+        .module("map.module", [
+            "ngRoute",
+            "location.service"
+        ])
         .controller("mapController", mapController)
 
     mapController.$inject = ["locationApi"]
