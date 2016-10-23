@@ -49,9 +49,9 @@
 
     gulp.task("protractor", function(callback) {
         gulp
-            .src(["e2e/*.js"])
+            .src([paths.e2eBlob])
             .pipe(gulpif(env==="TESTUI", angularProtractor({
-                "configFile": e2e.config,
+                "configFile": paths.e2eConfig,
                 "debug": false,
                 "autoStartStopServer": false
             })))
