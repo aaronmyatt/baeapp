@@ -41,6 +41,18 @@ describe("groupLocations", () => {
         })
     })
 
+    describe("getUniqueGroupValues", () => {
+
+        it("returns an an empty array if no args are passed", () => {
+            expect( service.getUniqueGroupValues().length ).toBe(0)
+        })
+
+        it("returns a list of unique values from subgroup", () => {
+            expect( service.getUniqueGroupValues(locations, "city").length ).toBe(6)
+        })
+
+    })
+
     describe("filterByGroup", () => {
 
         it("returns an an empty array if no args are passed", () => {
@@ -60,4 +72,5 @@ describe("groupLocations", () => {
         })
 
     })
+
 })

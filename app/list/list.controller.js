@@ -18,29 +18,39 @@
         vm.groupLocations = groupLocations
 
         vm.retrievedLocations = []
+        vm.filteredLocations  = []
+        vm.filterValues       = []
+        vm.activeGroup        = ""
 
-        vm.getAllLocations = getAllLocations
-        vm.locationGroups  = locationGroups
-        vm.filterGroup     = filterGroup
+        vm.getAllLocations   = getAllLocations
+        vm.locationGroups    = locationGroups
+        vm.uniqueGroupValues = uniqueGroupValues
+        vm.filterGroup       = filterGroup
 
         function getAllLocations() {
             const promise = vm.locations.getAll()
             promise.then((response) => {
                 vm.retrievedLocations = response
+                vm.filterGroup()
                 return response
             })
         }
 
         function locationGroups () {
-            return groupLocations.getGroups(vm.retrievedLocations, ["id", "address", "lng", "lat", "postalCode"])
+            return groupLocations.getGroups(vm.retrievedLocations, ["id", "address", "lng", "lat", "postalCode", "$$hashKey"])
         }
 
-        function filterGroup (group, choice) {
-            return groupLocations.filterByGroup(vm.retrievedLocations, [group, choice])
+        function uniqueGroupValues(choice) {
+            vm.activeGroup  = choice
+            vm.filterValues = groupLocations.getUniqueGroupValues(vm.retrievedLocations, choice)
+        }
+
+        function filterGroup (choice) {
+            vm.filteredLocations = groupLocations.filterByGroup(vm.retrievedLocations, [vm.activeGroup, choice])
         }
 
         function init() {
-            getAllLocations()
+            vm.getAllLocations()
         }
         init()
     }

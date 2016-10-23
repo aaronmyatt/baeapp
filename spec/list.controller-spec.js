@@ -13,9 +13,11 @@ describe("list controller",  () => {
 
         groupService = $injector.get('groupLocations')
         spyOn(groupService, "getGroups")
-        spyOn(groupService, "filterByGroup")
+        spyOn(groupService, "getUniqueGroupValues").and.callThrough();
+        spyOn(groupService, "filterByGroup").and.returnValue(locationArray)
 
         controller = $controller('listController')
+        controller.retrievedLocations = locationArray
       })
 
     })
@@ -23,7 +25,6 @@ describe("list controller",  () => {
     it ("instantiates successfully", () => {
         expect(controller.title).toBe("List")
     })
-
 
     it("depends on locationGroup.service", () => {
         expect(controller.groupLocations).toBeDefined()
@@ -33,11 +34,20 @@ describe("list controller",  () => {
         expect(controller.locations).toBeDefined()
     })
 
+    it("calls location service during init", () => {
+        expect(controller.locations.getAll).toHaveBeenCalled()
+    })
+
     describe("getAllLocations", () => {
 
         it("calls locationApi.getAll", () => {
             controller.getAllLocations()
             expect(controller.locations.getAll).toHaveBeenCalled()
+        })
+
+        it("calls grouping service", (done) => {
+            done()
+            expect(controller.filteredLocations.length).toEqual(1)
         })
 
     })
@@ -51,11 +61,36 @@ describe("list controller",  () => {
 
     })
 
+    describe("uniqueGroupValues", () => {
+
+        it("calls locationGroup.service.getUniqueGroupValues", () => {
+            controller.uniqueGroupValues()
+            expect(controller.groupLocations.getUniqueGroupValues).toHaveBeenCalled()
+        })
+
+        it("sets activeGroup", () => {
+            controller.uniqueGroupValues("city")
+            expect(controller.activeGroup).toEqual("city")
+        })
+
+        it("sets vm.filterValues", () => {
+            controller.uniqueGroupValues("city")
+            expect(controller.filterValues.length).toEqual(1)
+        })
+
+    })
+
     describe("filterByGroup", () => {
 
         it("calls locationGroup.service.filterByGroup", () => {
             controller.filterGroup()
             expect(controller.groupLocations.filterByGroup).toHaveBeenCalled()
+        })
+
+        it("sets vm.filteredLocations", () => {
+            controller.activeGroup = 'city'
+            controller.filterGroup('Petaling Jaya')
+            expect(controller.filteredLocations.length).toEqual(1)
         })
 
     })

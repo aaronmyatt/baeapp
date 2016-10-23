@@ -6,8 +6,9 @@ angular
     function groupLocations () {
 
         const service = {}
-        service.getGroups = getGroups
-        service.filterByGroup = filterByGroup
+        service.getGroups            = getGroups
+        service.filterByGroup        = filterByGroup
+        service.getUniqueGroupValues = getUniqueGroupValues
 
         return service
 
@@ -19,6 +20,18 @@ angular
                 })
             }
             return locations
+        }
+
+        function getUniqueGroupValues(locations = [], limit) {
+            const values = locations.reduce((current, previous) => {
+                const value = previous[limit]
+                if(current.indexOf(value) === -1){
+                    return [...current, value]
+                }
+                return current
+            }, [])
+
+            return values || []
         }
 
         function filterByGroup(locations = [], include = []) {

@@ -11,7 +11,22 @@ describe("list page", () => {
     })
 
     it("locations should appear on page load", () => {
-        expect( element.all( by.repeater('location in vm.retrievedLocations' )).count() ).toBe(9)
+        expect( ListPage.locationList().count() ).toBe(9)
+    })
+
+    it("two buttons render on page", () => {
+        expect( ListPage.allFilterButtons().count() ).toBe(2)
+    })
+
+    it("clicking a filter button produces a set of sub-filter buttons", () => {
+        ListPage.allFilterButtons().first().click()
+        expect( ListPage.allSubFilterButtons().count() ).toBe(6)
+    })
+
+    it("clicking a sub-filter button reduces number of visible locations", () => {
+        ListPage.allFilterButtons().first().click()
+        ListPage.allSubFilterButtons().first().click()
+        expect( ListPage.locationList().count() ).not.toBe(9)
     })
 
 })

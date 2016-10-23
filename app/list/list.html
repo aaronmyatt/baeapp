@@ -2,8 +2,32 @@
 
 <div class="">
     <ul>
-        <li ng-repeat="location in vm.retrievedLocations">
+        <li ng-repeat="location in vm.filteredLocations">
             {{location}}
+        </li>
+    </ul>
+</div>
+<div class="">
+    <ul>
+        <li ng-repeat="group in vm.locationGroups()">
+            <button type="button"
+                    name="button"
+                    class="filter-button"
+                    ng-click="vm.uniqueGroupValues(group)">
+                    {{group}}
+            </button>
+        </li>
+    </ul>
+</div>
+<div class="">
+    <ul>
+        <li ng-repeat="subgroup in vm.filterValues">
+            <button type="button"
+                    name="button"
+                    class="sub-filter-button"
+                    ng-click="vm.filterGroup(subgroup)">
+                    {{subgroup}}
+            </button>
         </li>
     </ul>
 </div>
