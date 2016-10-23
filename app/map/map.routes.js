@@ -8,7 +8,7 @@
   configFunction.$inject = ['$routeProvider'];
   function configFunction($routeProvider) {
     $routeProvider.when('/map', {
-      templateUrl: 'app/map/map.html',
+      templateUrl: 'map/map.html',
       controller: 'mapController',
       controllerAs: 'vm'
     });
