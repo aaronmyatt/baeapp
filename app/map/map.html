@@ -1,9 +1,35 @@
 <h1>{{vm.title}}</h1>
 
+<div class="">
+    <ul>
+        <li ng-repeat="group in vm.locationGroups()">
+            <button type="button"
+                    name="button"
+                    class="filter-button"
+                    ng-click="vm.uniqueGroupValues(group)">
+                    {{group}}
+            </button>
+        </li>
+    </ul>
+</div>
+
+<div class="">
+    <ul>
+        <li ng-repeat="subgroup in vm.filterValues">
+            <button type="button"
+                    name="button"
+                    class="sub-filter-button"
+                    ng-click="vm.filterGroup(subgroup)">
+                    {{subgroup}}
+            </button>
+        </li>
+    </ul>
+</div>
+
 <ng-map zoom="15"
         center="[3.1390, 101.6869]"
         zoom-to-include-markers="auto">
-    <marker ng-repeat="location in vm.retrievedLocations"
+    <marker ng-repeat="location in vm.filteredLocations"
             position="[{{location.lat}}, {{location.lng}}]"
             title="hello"></marker>
 </ng-map>

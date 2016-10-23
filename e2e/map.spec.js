@@ -11,11 +11,26 @@ describe("map page", () => {
     })
 
     it("should have an ngMap instance", () => {
-        expect( element( by.tagName("ngMap") ).isPresent() )
+        expect( MapPage.map().isPresent() ).toBe(true)
     })
 
-    it("map should render a marker for each location", () => {
-        expect( element.all( by.tagName("marker") ).count() ).toBe(9)
+    it("should render a marker for each location", () => {
+        expect( MapPage.allMarkers().count() ).toBe(9)
+    })
+
+    it("should display two buttons", () => {
+        expect( MapPage.allFilterButtons().count() ).toBe(2)
+    })
+
+    it("clicking a filter button produces a set of sub-filter buttons", () => {
+        MapPage.allFilterButtons().first().click()
+        expect( MapPage.allSubFilterButtons().count() ).toBe(6)
+    })
+
+    it("clicking a sub-filter button reduces number of visible locations", () => {
+        MapPage.allFilterButtons().first().click()
+        MapPage.allSubFilterButtons().first().click()
+        expect( MapPage.allMarkers().count() ).not.toBe(9)
     })
 
 })
