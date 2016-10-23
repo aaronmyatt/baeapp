@@ -26,6 +26,7 @@
         vm.locationGroups    = locationGroups
         vm.uniqueGroupValues = uniqueGroupValues
         vm.filterGroup       = filterGroup
+        vm.reset             = reset
 
         function getAllLocations() {
             const promise = vm.locations.getAll()
@@ -47,6 +48,11 @@
 
         function filterGroup (choice) {
             vm.filteredLocations = groupLocations.filterByGroup(vm.retrievedLocations, [vm.activeGroup, choice])
+        }
+
+        function reset() {
+            vm.activeGroup = ""
+            vm.filteredLocations = vm.retrievedLocations
         }
 
         function init() {

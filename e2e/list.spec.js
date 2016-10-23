@@ -29,4 +29,12 @@ describe("list page", () => {
         expect( ListPage.locationList().count() ).not.toBe(9)
     })
 
+    it("all group options display after clicking reset", () => {
+        ListPage.allFilterButtons().first().click()
+        ListPage.allSubFilterButtons().first().click()
+        expect( ListPage.locationList().count() ).not.toBe(9)
+        ListPage.reset().click()
+        expect( ListPage.locationList().count() ).toBe(9)
+    })
+
 })

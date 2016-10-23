@@ -27,10 +27,18 @@ describe("map page", () => {
         expect( MapPage.allSubFilterButtons().count() ).toBe(6)
     })
 
-    it("clicking a sub-filter button reduces number of visible locations", () => {
+    it("reduces number of visible locations after clicking a sub-filter button", () => {
         MapPage.allFilterButtons().first().click()
         MapPage.allSubFilterButtons().first().click()
         expect( MapPage.allMarkers().count() ).not.toBe(9)
+    })
+
+    it("all group options display after clicking reset", () => {
+        MapPage.allFilterButtons().first().click()
+        MapPage.allSubFilterButtons().first().click()
+        expect( MapPage.allMarkers().count() ).not.toBe(9)
+        MapPage.reset().click()
+        expect( MapPage.allMarkers().count() ).toBe(9)
     })
 
 })

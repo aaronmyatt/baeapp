@@ -3,7 +3,8 @@ const ListPage = {
     title              : () => { return element( by.tagName("h1") ).getText() },
     locationList       : () => { return element.all( by.repeater('location in vm.filteredLocations' )) },
     allFilterButtons   : () => { return element.all( by.className('filter-button') ) },
-    allSubFilterButtons: () => { return element.all( by.className('sub-filter-button') ) }
+    allSubFilterButtons: () => { return element.all( by.className('sub-filter-button') ) },
+    reset              : () => { return element( by.id("reset-button") ) }
 }
 
 module.exports = ListPage

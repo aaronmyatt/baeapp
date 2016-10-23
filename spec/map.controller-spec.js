@@ -101,4 +101,16 @@ describe("location list controller",  () => {
 
     })
 
+    describe("reset-button", () => {
+
+        it("returns activeGroup and filteredLocations to default state", () => {
+            controller.activeGroup = 'city'
+            controller.filteredLocations = []
+            controller.reset()
+            expect(controller.activeGroup).toEqual("")
+            expect(controller.filteredLocations).toEqual(locationArray)
+        })
+
+    })
+
 });
