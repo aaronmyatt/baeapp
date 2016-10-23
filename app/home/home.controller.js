@@ -1,6 +1,6 @@
 (() => {
     'use strict';
-    
+
     angular
         .module("home.module", [
             "ngRoute"
