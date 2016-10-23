@@ -8,8 +8,13 @@ describe("list controller",  () => {
       module(($provide) => {})
 
       inject(($controller, $injector) => {
-        service = $injector.get('locationApi')
-        spyOn(service, "getAll").and.returnValue( Promise.resolve(locationArray) );
+        locationService = $injector.get('locationApi')
+        spyOn(locationService, "getAll").and.returnValue( Promise.resolve(locationArray) )
+
+        groupService = $injector.get('groupLocations')
+        spyOn(groupService, "getGroups")
+        spyOn(groupService, "filterByGroup")
+
         controller = $controller('listController')
       })
 
@@ -19,12 +24,39 @@ describe("list controller",  () => {
         expect(controller.title).toBe("List")
     })
 
-    it ("depends on location.map", () => {
+
+    it("depends on locationGroup.service", () => {
+        expect(controller.groupLocations).toBeDefined()
+    })
+
+    it ("depends on location.service", () => {
         expect(controller.locations).toBeDefined()
     })
 
-    it("calls locationApi.getAll", () => {
-        controller.getAllLocations()
-        expect(controller.locations.getAll).toHaveBeenCalled()
-    });
+    describe("getAllLocations", () => {
+
+        it("calls locationApi.getAll", () => {
+            controller.getAllLocations()
+            expect(controller.locations.getAll).toHaveBeenCalled()
+        })
+
+    })
+
+    describe("getFilterGroups", () => {
+
+        it("calls locationGroup.service.getGroups", () => {
+            controller.locationGroups()
+            expect(controller.groupLocations.getGroups).toHaveBeenCalled()
+        })
+
+    })
+
+    describe("filterByGroup", () => {
+
+        it("calls locationGroup.service.filterByGroup", () => {
+            controller.filterGroup()
+            expect(controller.groupLocations.filterByGroup).toHaveBeenCalled()
+        })
+
+    })
 })
