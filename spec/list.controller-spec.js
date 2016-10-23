@@ -27,14 +27,4 @@ describe("list controller",  () => {
         controller.getAllLocations()
         expect(controller.locations.getAll).toHaveBeenCalled()
     });
-
-    it("getAllLocations resolves to a list of locations", (done) => {
-        controller.getAllLocations()
-        done()
-        expect(controller.retrievedLocations).toBe(locationArray)
-    })
-
-    // it("getAllLocations called on init", () => {
-    //     expect(controller.retrievedLocations).toBe(locationArray)
-    // })
 })
