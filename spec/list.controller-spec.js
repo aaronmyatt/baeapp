@@ -34,8 +34,7 @@ describe("list controller",  () => {
         expect(controller.retrievedLocations).toBe(locationArray)
     })
 
-    it("getAllLocations called on init", (done) => {
-        done()
-        expect(controller.retrievedLocations).toBe(locationArray)
-    })
-});
+    // it("getAllLocations called on init", () => {
+    //     expect(controller.retrievedLocations).toBe(locationArray)
+    // })
+})
