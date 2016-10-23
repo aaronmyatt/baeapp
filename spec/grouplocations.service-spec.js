@@ -42,6 +42,22 @@ describe("groupLocations", () => {
     })
 
     describe("filterByGroup", () => {
-        
+
+        it("returns an an empty array if no args are passed", () => {
+            expect( service.filterByGroup().length ).toBe(0)
+        })
+
+        it("returns the input array if not include arguments are given", () => {
+            expect( service.filterByGroup(locations) ).toEqual(locations)
+        })
+
+        it("a subset of the input array objects based on include criteria", () => {
+            expect( service.filterByGroup(locations, ["city", "Hanoi"] ) ).toEqual([locations[7], locations[8]])
+        })
+
+        it("returns the input array if include criteria are not found", () => {
+            expect( service.filterByGroup(locations, ["city", "Nuuk"] ) ).toEqual(locations)
+        })
+
     })
 })
