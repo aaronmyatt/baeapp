@@ -1,33 +1,45 @@
-<h1>{{vm.title}}</h1>
-
-<div class="">
-    <ul>
-        <li ng-repeat="location in vm.filteredLocations">
-            {{location}}
-        </li>
-    </ul>
-</div>
-<div class="">
-    <ul>
-        <li ng-repeat="group in vm.locationGroups()">
-            <button type="button"
-                    name="button"
-                    class="filter-button"
-                    ng-click="vm.uniqueGroupValues(group)">
-                    {{group}}
-            </button>
-        </li>
-    </ul>
-</div>
-<div class="">
-    <ul>
-        <li ng-repeat="subgroup in vm.filterValues">
-            <button type="button"
-                    name="button"
-                    class="sub-filter-button"
-                    ng-click="vm.filterGroup(subgroup)">
-                    {{subgroup}}
-            </button>
-        </li>
-    </ul>
-</div>
+<md-card class="md-padding">
+    <md-card-title-text>
+        <h1>{{vm.title}}</h1>
+    </md-card-title-text>
+    <md-card-actions>
+        <h3>Select a group</h3>
+        <div class="" layout="row">
+            <div class="" ng-repeat="group in vm.locationGroups()">
+                <md-button type="button"
+                        name="button"
+                        class="filter-button"
+                        ng-click="vm.uniqueGroupValues(group)">
+                        {{group}}
+                </md-button>
+            </div>
+        </div>
+    </md-card-actions>
+    <md-card-actions>
+        <h3>Select a value</h3>
+        <div class="" layout="row">
+            <div class="" ng-repeat="subgroup in vm.filterValues">
+                <md-button type="button"
+                        name="button"
+                        class="sub-filter-button"
+                        ng-click="vm.filterGroup(subgroup)">
+                        {{subgroup}}
+                </md-button>
+            </div>
+        </div>
+    </md-card-actions>
+    <md-card-content>
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Locations</md-subheader>
+                <md-list-item ng-repeat="location in vm.filteredLocations" class="md-3-line" ng-click="null">
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{ location.country }}</h3>
+                    <h4>{{ location.city }}</h4>
+                    <p>{{ location.address }}</p>
+                  </div>
+                </md-list-item>
+                <md-divider ></md-divider>
+            </md-list
+        </div>
+    </md-card-content>
+</md-card>
