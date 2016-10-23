@@ -7,6 +7,7 @@ angular
 
         const service = {}
         service.getGroups = getGroups
+        service.filterByGroup = filterByGroup
 
         return service
 
@@ -18,5 +19,16 @@ angular
                 })
             }
             return locations
+        }
+
+        function filterByGroup(locations = [], include = []) {
+            const result = locations.filter((location) => {
+                return location[include[0]] === include[1]
+            })
+            if(result.length > 0){
+                return result
+            }else{
+                return locations
+            }
         }
     }
