@@ -8,7 +8,7 @@
   configFunction.$inject = ['$routeProvider'];
   function configFunction($routeProvider) {
     $routeProvider.when('/list', {
-      templateUrl: 'app/list/list.html',
+      templateUrl: 'list/list.html',
       controller: 'listController',
       controllerAs: 'vm'
     });
