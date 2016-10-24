@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH=/Users/lsp/experiment/baeapp/bae/lib/node_modules
+export NPM_CONFIG_PREFIX=/Users/lsp/experiment/baeapp/bae
+export npm_config_prefix=/Users/lsp/experiment/baeapp/bae
+exec bae/bin/node "$@"
