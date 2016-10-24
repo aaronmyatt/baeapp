@@ -17727,3 +17727,26 @@ md-tooltip {
 @media print {
   .hide-print:not(.show-print):not(.show) {
     display: none !important; } }
+
+body {
+  background-color: #d8dcdb; }
+  body md-content {
+    background-color: #d8dcdb; }
+
+.sub-filter-button.md-button:hover {
+  background-color: #F26521;
+  color: white; }
+
+.filter-button.md-button:hover {
+  background-color: #F26521;
+  color: white; }
+
+md-nav-bar .md-nav-bar {
+  background-color: white; }
+
+md-nav-bar .nav-button .md-active {
+  background-color: #F26521;
+  color: white; }
+  md-nav-bar .nav-button .md-active:hover {
+    background-color: #F26521;
+    color: white; }
