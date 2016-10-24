@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/aaronmyatt/baeapp#readme",
   "devDependencies": {
-    "angular-mock": "^1.0.0",
     "angular-mocks": "^1.5.8",
     "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
@@ -29,7 +28,6 @@
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.2",
     "karma-spec-reporter": "0.0.26"
   },
   "dependencies": {
@@ -42,6 +40,5 @@
     "angular-route": "^1.5.8",
     "angular-sanitize": "^1.5.8",
     "ngmap": "^1.17.8",
-    "svg-morpheus": "^0.3.0"
   }
 }

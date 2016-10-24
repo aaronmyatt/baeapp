@@ -1,5 +1,6 @@
 package db <<database>> {
     object jsonserver {
+      "id": 1
       "address": "The Boulevard\nMid Valley City, Lingkaran Syed Putra",
       "city": "Kuala Lumpur",
       "country": "Malaysia",
@@ -9,12 +10,48 @@ package db <<database>> {
     }
 }
 
-package views {
+package Services {
+
+    object locationsApi {
+        get()
+        getAll()
+    }
+
+    object groupLocations {
+        getGroups()
+        getUniqueGroupValues()
+        filterByGroup()
+    }
+}
+
+package Controllers {
+    object HomeController {
+
+    }
+
+    object ListController {
+        getAllLocations()
+        locationGroups()
+        uniqueGroupValues()
+        filterGroup()
+        reset()
+    }
+
+    object MapController {
+        getAllLocations()
+        locationGroups()
+        uniqueGroupValues()
+        filterGroup()
+        reset()
+    }
+}
+
+package Views {
     object home {
 
     }
 
-    object list_locations {
+    object list {
 
     }
 
@@ -23,42 +60,13 @@ package views {
     }
 }
 
-package controllers {
-    object HomeController {
-
-    }
-
-    object ListController {
-
-    }
-
-    object MapController {
-
-    }
-}
-
-package services {
-    object locationsApi {
-        get()
-        getAll()
-    }
-
-    object groupLocations {
-        groupByCountry()
-        groupByCity()
-        groupByCityAndCountry()
-    }
-}
-
 jsonserver <-- locationsApi
-
-locationsApi <-right- groupLocations
-
 
 locationsApi <-- ListController
 locationsApi <-- MapController
+groupLocations <-- ListController
 groupLocations <-- MapController
 
 HomeController <-- home
-ListController <-- list_locations
+ListController <-- list
 MapController <-- map
