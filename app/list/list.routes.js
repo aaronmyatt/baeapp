@@ -1,17 +1,17 @@
 (() => {
-    'use strict';
+    "use strict"
 
   angular
-    .module('list.module')
+    .module("list.module")
     .config(configFunction)
 
-  configFunction.$inject = ['$routeProvider'];
+  configFunction.$inject = ["$routeProvider"]
   function configFunction($routeProvider) {
-    $routeProvider.when('/list', {
-      templateUrl: 'list/list.html',
-      controller: 'listController',
-      controllerAs: 'vm'
-    });
+    $routeProvider.when("/list", {
+      templateUrl: "list/list.html",
+      controller: "listController",
+      controllerAs: "vm"
+    })
   }
 
 })()

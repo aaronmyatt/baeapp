@@ -1,35 +1,39 @@
-angular
-    .module('location.service', [])
-    .service("locationApi", locationApi)
+(() => {
 
-    locationApi.$inject = ["$http"]
-    function locationApi ($http) {
+    angular
+        .module("location.service", [])
+        .service("locationApi", locationApi)
 
-        const service = {}
-        service.get = get
-        service.getAll = getAll
+        locationApi.$inject = ["$http"]
+        function locationApi ($http) {
 
-        return service
+            const service = {}
+            service.get = get
+            service.getAll = getAll
 
-        function get (arg) {
-            const url = `http://localhost:3000/locations/${arg}`
-            const promise = $http.get(url)
-            return promise
-                .then(
-                    (response) => {
-                        return response.data
-                    }
-                )
+            return service
+
+            function get (arg) {
+                const url = `http://localhost:3000/locations/${arg}`
+                const promise = $http.get(url)
+                return promise
+                    .then(
+                        (response) => {
+                            return response.data
+                        }
+                    )
+            }
+
+            function getAll () {
+                const url = "http://localhost:3000/locations"
+                const promise = $http.get(url)
+                return promise
+                    .then(
+                        (response) => {
+                            return response.data
+                        }
+                    )
+            }
         }
 
-        function getAll () {
-            const url = 'http://localhost:3000/locations'
-            const promise = $http.get(url)
-            return promise
-                .then(
-                    (response) => {
-                        return response.data
-                    }
-                )
-        }
-    }
+})()

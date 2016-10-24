@@ -1,5 +1,5 @@
 (() => {
-    'use strict';
+    "use strict"
 
     angular
         .module("home.module", [
@@ -7,10 +7,10 @@
         ])
         .controller("homeController", homeController)
 
-    homeController.$inject = [];
+    homeController.$inject = []
     function homeController () {
-        const vm = this;
+        const vm = this
         vm.title = "BAE"
     }
 
-})();
+})()
