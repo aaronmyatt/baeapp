@@ -11,7 +11,7 @@ angular
         return service
 
         function getAll () {
-            const url = 'locations.json'
+            const url = 'location.json'
             const promise = $http.get(url)
             return promise
                 .then(
