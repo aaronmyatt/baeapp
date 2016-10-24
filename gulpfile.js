@@ -15,6 +15,7 @@
         css           : "app/css",
         cssBlob       : "app/css/*.css",
         sass          : "app/sass",
+        sassIndex     : "app/sass/index.scss",
         sassBlob      : "app/sass/*.scss",
         scriptsBlob   : "app/**/*.js",
         templatesBlob : "app/**/*.html",
@@ -35,7 +36,7 @@
     });
 
     gulp.task("sass", () => {
-        return gulp.src(paths.sassBlob)
+        return gulp.src(paths.sassIndex)
             .pipe(sass())
             .pipe(gulp.dest(paths.css))
             .pipe(browserSync.stream());
