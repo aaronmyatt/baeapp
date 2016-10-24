@@ -67,4 +67,4 @@ Two packages of note, however, are the wonderful [`angular-material`](https://ma
 
 For a little more insight regarding the app design and data flow the following diagram should suffice:
 
-![appOverview]("app_overview.png")
+![appOverview](./app_overview.png)
