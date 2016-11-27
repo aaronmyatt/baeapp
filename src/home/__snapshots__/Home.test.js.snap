@@ -1,0 +1,33 @@
+exports[`home page renders static content 1`] = `
+<div>
+  <div>
+    <div>
+      <h2>
+        SPEC
+      </h2>
+      <p>
+        Providing location info in JSON format (
+        <a
+          href="https://github.com/aaronmyatt/baeapp/blob/master/location.json">
+          locations
+        </a>
+        ). Let’s build a single page application:
+      </p>
+    </div>
+    <ol>
+      <li>
+        Group those location by country and city.
+      </li>
+      <li>
+        Show the location with address, city and post with its location in map.
+      </li>
+      <li>
+        Provide documentation about technology used and flow.
+      </li>
+      <li>
+        Unit test is optional
+      </li>
+    </ol>
+  </div>
+</div>
+`;

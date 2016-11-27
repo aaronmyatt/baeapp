@@ -10,63 +10,51 @@ package db <<database>> {
     }
 }
 
-package Services {
-
-    object locationsApi {
-        get()
-        getAll()
-    }
-
-    object groupLocations {
-        getGroups()
-        getUniqueGroupValues()
-        filterByGroup()
-    }
-}
-
-package Controllers {
-    object HomeController {
+package Redux {
+    package Actions {
 
     }
 
-    object ListController {
-        getAllLocations()
-        locationGroups()
-        uniqueGroupValues()
-        filterGroup()
-        reset()
-    }
-
-    object MapController {
-        getAllLocations()
-        locationGroups()
-        uniqueGroupValues()
-        filterGroup()
-        reset()
-    }
-}
-
-package Views {
-    object home {
+    package Reducers {
 
     }
 
-    object list {
-
-    }
-
-    object map {
+    package Store {
 
     }
 }
 
-jsonserver <-- locationsApi
+package React {
 
-locationsApi <-- ListController
-locationsApi <-- MapController
-groupLocations <-- ListController
-groupLocations <-- MapController
+    package InitialState {
 
-HomeController <-- home
-ListController <-- list
-MapController <-- map
+    }
+
+    package View {
+
+        object Index {
+
+        }
+
+        object Home
+        object Map
+        object List
+
+    }
+
+}
+
+
+Reducers <-- Actions
+Store <-- Reducers
+
+InitialState <-up- Index
+Index <-up- Home
+Index <-up- Map
+Index <-up- List
+
+Actions <-- Map
+Actions <-- List
+db <-- Actions
+db --> Actions
+InitialState <-- Store

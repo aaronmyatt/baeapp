@@ -1,0 +1,28 @@
+exports[`filter group component renders static content 1`] = `
+<div>
+  <div>
+    <ul>
+      <li>
+        <button
+          onClick={[Function]}>
+          city
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}>
+          country
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <button
+          onClick={[Function]} />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
